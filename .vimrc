@@ -1,5 +1,16 @@
 " .vimrc
-" git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+
+" Dependencies
+
+" Vundle
+" git clone https://github.com/VundleVim/Vundle.vim.git" ~/.vim/bundle/Vundle.vim
+" vim 
+" :PluginInstall
+
+" Hybrid color scheme
+" git clone https://github.com/w0ng/vim-hybrid.git ~/vim-hybrid
+" ln -s ~/vim-hybrid/colors/hybrid.vim ~/.vim/colors/hybrid.vim
 
 
 " No compatibility
