@@ -144,6 +144,8 @@ map <Leader>w :w<CR>
 " Easier close buffer without closing window
 map <Leader>c :Bclose<CR>
 
+map <Leader>v :%s/\s\+$//e<CR>
+
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -155,6 +157,7 @@ Plugin 'rbgrouleff/bclose.vim'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'tpope/vim-commentary'
+Plugin 'editorconfig/editorconfig-vim'
 call vundle#end()
 
 filetype plugin indent on

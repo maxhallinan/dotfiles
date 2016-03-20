@@ -16,7 +16,9 @@ plugins=(git z)
 # User configuration
 
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki"
-# export MANPATH="/usr/local/man:$MANPATH"
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+
 
 source $ZSH/oh-my-zsh.sh
 
