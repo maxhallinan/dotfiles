@@ -52,3 +52,10 @@ ln -s .zshrc ~/.zshrc
 curl -o ~/.oh-my-zsh/themes/honukai.zsh-theme https://raw.githubusercontent.com/oskarkrawczyk/honukai-iterm/master/honukai.zsh-theme
 ```
 
+### .gitignore
+
+```
+ln -s ~/.gitignore ./.gitignore
+git config --global core.excludesfile '~/.gitignore'
+```
+
