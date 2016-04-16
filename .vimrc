@@ -29,7 +29,6 @@ syntax enable
 set t_Co=256
 " Dark solarized scheme
 set background=dark
-colorscheme hybrid 
 
 
 
@@ -158,9 +157,13 @@ Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'tpope/vim-commentary'
 Plugin 'editorconfig/editorconfig-vim'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'pangloss/vim-javascript'
 call vundle#end()
 
 filetype plugin indent on
+
+colorscheme solarized 
 
 let g:vim_markdown_folding_disabled=1
 let g:vim_markdown_frontmatter=1
