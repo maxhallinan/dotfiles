@@ -159,6 +159,8 @@ Plugin 'tpope/vim-commentary'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'pangloss/vim-javascript'
+Plugin 'JulesWang/css.vim'
+Plugin 'cakebaker/scss-syntax.vim'
 call vundle#end()
 
 filetype plugin indent on
