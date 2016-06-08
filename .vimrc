@@ -35,6 +35,7 @@ set background=dark
 " Set relevant filetypes
 au BufRead,BufNewFile *.scss set filetype=css
 au BufRead,BufNewFile *.md set filetype=markdown
+autocmd BufNewFile,BufRead *.py set filetype=python
 
 
 
@@ -50,6 +51,8 @@ set softtabstop=2
 set shiftround
 " No line-wrapping
 set nowrap
+set textwidth=79
+set formatoptions+=t
 
 
 
@@ -171,4 +174,11 @@ let g:vim_markdown_folding_disabled=1
 let g:vim_markdown_frontmatter=1
 
 autocmd vimenter * NERDTree
-au BufNewFile, BufRead *.markdown set tw=79
+
+au BufNewFile,BufRead *.py
+    \ set tabstop=4 |
+    \ set softtabstop=4 |
+    \ set shiftwidth=4 |
+    \ set expandtab |
+    \ set autoindent |
+    \ set fileformat=unix |
