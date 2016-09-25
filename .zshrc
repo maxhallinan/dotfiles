@@ -45,3 +45,4 @@ export SSH_KEY_PATH="~/.ssh/dsa_id"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 export INPUTRC=~/.inputrc
+source ~/.zshenv

@@ -51,7 +51,6 @@ set softtabstop=2
 set shiftround
 " No line-wrapping
 set nowrap
-set textwidth=79
 set formatoptions+=t
 
 
@@ -164,6 +163,9 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'pangloss/vim-javascript'
 Plugin 'JulesWang/css.vim'
 Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'mxw/vim-jsx'
+Plugin 'elzr/vim-json'
+Plugin 'lambdatoast/elm.vim'
 call vundle#end()
 
 filetype plugin indent on
@@ -173,9 +175,18 @@ colorscheme solarized
 let g:vim_markdown_folding_disabled=1
 let g:vim_markdown_frontmatter=1
 
+" highlight jsx in .js files
+let g:jsx_ext_required = 0
+
 autocmd vimenter * NERDTree
 
+autocmd vimenter filetype markdown
+  \ set textwidth=79 |
+  \ set tabstop=4 |
+  \ set wrap |
+
 au BufNewFile,BufRead *.py
+    \ set textwidth=79 |
     \ set tabstop=4 |
     \ set softtabstop=4 |
     \ set shiftwidth=4 |
