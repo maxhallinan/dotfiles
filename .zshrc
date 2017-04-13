@@ -19,7 +19,6 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki"
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
-
 source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
@@ -33,7 +32,7 @@ else
 fi
 
 # ssh
-export SSH_KEY_PATH="~/.ssh/dsa_id"
+export SSH_KEY_PATH="~/.ssh/id_rsa"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -46,3 +45,6 @@ export SSH_KEY_PATH="~/.ssh/dsa_id"
 
 export INPUTRC=~/.inputrc
 source ~/.zshenv
+
+autoload -U promptinit; promptinit
+prompt pure

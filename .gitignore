@@ -130,3 +130,6 @@ ENV/
 
 # Rope project settings
 .ropeproject
+
+# Yoeman generator settings
+.yo-rc.json
