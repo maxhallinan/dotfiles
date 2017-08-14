@@ -67,6 +67,15 @@ export N_PREFIX="${NPM_PACKAGES}"
 
 ###-end-npm-global-without-sudo-###
 
+###-begin-pure-prompt-###
+# https://github.com/sindresorhus/pure
+# First install pure-prompt: `npm install --global pure-prompt` 
+
+autoload -U promptinit; promptinit
+prompt pure
+
+###-end-pure-prompt-###
+
 ###-begin-npm-completion-###
 #
 # npm command completion script
