@@ -1,3 +1,5 @@
 [user]
   name = Max Hallinan
   email = maxhallinan@riseup.net
+[core]
+	excludesfile = ~/.gitignore
