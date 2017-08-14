@@ -4,10 +4,10 @@ A dotfile for every occasion.
 
 ## Usage
 
-### .vimrc
+### Vim
 
 ```shell
-# Install .vimrc
+# Configure Vim
 ln -s ./.vimrc ~/.vimrc
 
 # Install Vim plugins 
@@ -20,7 +20,7 @@ vim
 :PluginInstall
 ```
 
-### .zshrc
+### Zsh
 
 ```shell
 # Install Zsh via package manager of choice
@@ -47,20 +47,24 @@ echo $SHELL
 # Install oh-my-zsh
 sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 
-# Symlink to ~/.zshrc
+# Configure Zsh
+ln -s ./.zshenv ~/.zshenv
 ln -s ./.zshrc ~/.zshrc
 
-# Install Pure prompt
+# Install pure-prompt
 # https://github.com/sindresorhus/pure
 npm install --global pure-prompt
 
-# Activate zsh configuration
+# Activate Zsh configuration
 source ~/.zshrc
 ```
 
-### .gitignore
+### Git
 
 ```shell
+# Add git config
+ln -s ./.gitconfig ~/.gitconfig
+
 # Add global .gitignore
 ln -s ./.gitignore ~/.gitignore
 ```
@@ -69,7 +73,7 @@ ln -s ./.gitignore ~/.gitignore
 ### tmux
 
 ```shell
-# Add custom tmux config
+# Configure tmux
 ln -s ./tmux.conf ~/.tmux.conf
 
 # Install tmux plugin manager
@@ -78,4 +82,12 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # Activate tmux config
 tmux source ~/.tmux.conf
+```
+
+
+### npm
+
+```shell
+# Configure npm
+ln -s ./.npmrc ~/.nprc
 ```
