@@ -88,6 +88,10 @@ tmux source ~/.tmux.conf
 ### npm
 
 ```shell
+# Set up npm global installation directory
+# https://github.com/sindresorhus/guides/blob/master/npm-global-without-sudo.md
+mkdir "${HOME}/.npm-packages"
+
 # Configure npm
 ln -s ./.npmrc ~/.nprc
 ```
