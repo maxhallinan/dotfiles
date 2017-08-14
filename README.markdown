@@ -6,7 +6,7 @@ A dotfile for every occasion.
 
 ### .vimrc
 
-```
+```shell
 # Install .vimrc
 ln -s ./.vimrc ~/.vimrc
 
@@ -21,7 +21,8 @@ vim
 ```
 
 ### .zshrc
-```
+
+```shell
 # Install Zsh via package manager of choice
 
 # On Mac:
@@ -59,6 +60,22 @@ source ~/.zshrc
 
 ### .gitignore
 
+```shell
+# Add global .gitignore
+ln -s ./.gitignore ~/.gitignore
 ```
-ln -s ~/.gitignore ./.gitignore
+
+
+### tmux
+
+```shell
+# Add custom tmux config
+ln -s ./tmux.conf ~/.tmux.conf
+
+# Install tmux plugin manager
+# https://github.com/tmux-plugins/tpm
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+# Activate tmux config
+tmux source ~/.tmux.conf
 ```
