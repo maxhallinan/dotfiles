@@ -15,8 +15,7 @@ plugins=(git z)
 
 # User configuration
 
-export PATH="$HOME/.rbenv/bin:/usr/local/munki/:$HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
-eval "$(rbenv init -)"
+export PATH="$HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -45,10 +44,29 @@ export SSH_KEY_PATH="~/.ssh/id_rsa"
 export INPUTRC=~/.inputrc
 source ~/.zshenv
 
-autoload -U promptinit; promptinit
-prompt pure
+# autoload -U promptinit; promptinit
+# prompt pure
 
 bindkey -v
+
+###-begin-npm-global-without-sudo-###
+# https://github.com/sindresorhus/guides/blob/master/npm-global-without-sudo.md
+#
+
+NPM_PACKAGES="${HOME}/.npm-packages"
+
+PATH="$NPM_PACKAGES/bin:$PATH"
+
+# Unset manpath so we can inherit from /etc/manpath via the `manpath` command
+unset MANPATH
+export MANPATH="$NPM_PACKAGES/share/man:${manpath}"
+
+
+# https://github.com/tj/n#additional-details
+export N_PREFIX="${NPM_PACKAGES}"
+
+###-end-npm-global-without-sudo-###
+
 ###-begin-npm-completion-###
 #
 # npm command completion script
