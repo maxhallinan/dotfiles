@@ -1,9 +1,13 @@
 ###-begin-zsh-config-###
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/mhallinan/.oh-my-zsh
+export ZSH="${HOME}/.oh-my-zsh"
 
 # Disable oh-my-zsh themes for pure-prompt
-ZSH_THEME=""
+# Install manually: https://github.com/sindresorhus/pure 
+# `npm install --global pure-prompt` has not worked for me on Ubuntu 16.04
+# `/usr/local/share/zsh/site-functions` is owned by root and pure-prompt creates
+# symlinks without `sudo`
+ZSH_THEME="pure"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -32,25 +36,15 @@ fi
 export SSH_KEY_PATH="~/.ssh/id_rsa"
 
 export INPUTRC=~/.inputrc
-source ~/.zshenv
 
 # Enable Vim keybindings
 # bindkey -v
 ###-end-user-config-###
 
 
-###-begin-pure-prompt-config-###
-# https://github.com/sindresorhus/pure
-# First install pure-prompt: `npm install --global pure-prompt` 
-autoload -U promptinit; promptinit
-
-prompt pure
-###-end-pure-prompt-config-###
-
-
 ###-begin-npm-global-without-sudo-config-###
 # https://github.com/sindresorhus/guides/blob/master/npm-global-without-sudo.md
-NPM_PACKAGES="${HOME}/.npm-packages"
+NPM_PACKAGES="${HOME}/.npm-global"
 
 PATH="$NPM_PACKAGES/bin:$PATH"
 

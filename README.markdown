@@ -51,9 +51,10 @@ sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install
 ln -s ./.zshenv ~/.zshenv
 ln -s ./.zshrc ~/.zshrc
 
-# Install pure-prompt
-# https://github.com/sindresorhus/pure
-npm install --global pure-prompt
+# Install pure-prompt *manually*
+# Installing with npm will cause permissions errors on Linux
+# https://github.com/sindresorhus/pure#manually 
+# Also helpful: https://gist.github.com/marcuslilja/8100205#install-pure-theme
 
 # Activate Zsh configuration
 source ~/.zshrc
