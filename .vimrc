@@ -170,7 +170,7 @@ call vundle#end()
 
 filetype plugin indent on
 
-colorscheme solarized 
+color solarized 
 
 let g:vim_markdown_folding_disabled=1
 let g:vim_markdown_frontmatter=1
@@ -178,7 +178,9 @@ let g:vim_markdown_frontmatter=1
 " highlight jsx in .js files
 let g:jsx_ext_required = 0
 
-autocmd vimenter * NERDTree
+" autocmd vimenter * NERDTree
+" Toggle NERDTree
+map <Leader>n :NERDTreeToggle<CR>
 
 autocmd vimenter filetype markdown
   \ set textwidth=79 |
