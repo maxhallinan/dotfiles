@@ -165,7 +165,7 @@ Plugin 'JulesWang/css.vim'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'mxw/vim-jsx'
 Plugin 'elzr/vim-json'
-Plugin 'lambdatoast/elm.vim'
+Plugin 'elmcast/elm-vim'
 call vundle#end()
 
 filetype plugin indent on
