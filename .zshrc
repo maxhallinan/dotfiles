@@ -68,3 +68,10 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 # *Keep at the end of .zshrc*
 eval "$(pyenv init -)"
 ###-end-pyenv-config-###
+
+###-begin-rbenv-###
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+###-end-rbenv-###
+
+alias notes='vim + "$(date +%Y)/$(date +%Y%m%d).md"'

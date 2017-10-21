@@ -138,3 +138,6 @@ pip-selfcheck.json
 
 # Yoeman generator settings
 .yo-rc.json
+
+# Elm
+elm-stuff
