@@ -1,23 +1,28 @@
-# dotfiles
+# Dotfiles
 
 A dotfile for every occasion.
 
 ## Usage
 
-### Vim
+### rbenv
 
 ```shell
-# Configure Vim
-ln -s ./.vimrc ~/.vimrc
+git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+cd ~/.rbenv && src/configure && make -C src
+# `rbenv install` command is dependent on rbenv/ruby-build
+git clone https://github.com/rbenv/ruby-build.git "~/.rbenv/plugins/ruby-build
+# restart shell
+```
 
-# Install Vim plugins 
+### pyenv
 
-# Install Vundle (Vim plugin manager)
-git clone https://github.com/VundleVim/Vundle.vim.git" ~/.vim/bundle/Vundle.vim
-
-# Install Vundle-managed plugins
-vim 
-:PluginInstall
+```shell
+# Install
+git clone https://github.com/yyuu/pyenv.git ~/.pyenv
+# restart shell
+# Set latest version and system version as global shims
+pyenv install [latest]
+pyenv global [latest] system
 ```
 
 ### Zsh
@@ -27,6 +32,8 @@ vim
 
 # On Mac:
 brew install zsh
+# On Ubuntu
+sudo apt-get update && sudo apt-get install -y zsh
 
 # Verify installation
 zsh --version 
@@ -60,16 +67,21 @@ ln -s ./.zshrc ~/.zshrc
 source ~/.zshrc
 ```
 
-### Git
+### Vim
 
 ```shell
-# Add git config
-ln -s ./.gitconfig ~/.gitconfig
+# Configure Vim
+ln -s ./.vimrc ~/.vimrc
 
-# Add global .gitignore
-ln -s ./.gitignore ~/.gitignore
+# Install Vim plugins 
+
+# Install Vundle (Vim plugin manager)
+git clone https://github.com/VundleVim/Vundle.vim.git" ~/.vim/bundle/Vundle.vim
+
+# Install Vundle-managed plugins
+vim 
+:PluginInstall
 ```
-
 
 ### tmux
 
@@ -83,16 +95,29 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # Activate tmux config
 tmux source ~/.tmux.conf
-```
 
+# Install tmux plugins
+ts foo
+<tmux-prefix> I
+```
 
 ### npm
 
 ```shell
 # Set up npm global installation directory
 # https://github.com/sindresorhus/guides/blob/master/npm-global-without-sudo.md
-mkdir "${HOME}/.npm-packages"
+mkdir "${HOME}/.npm-global"
 
 # Configure npm
 ln -s ./.npmrc ~/.nprc
+```
+
+### Git
+
+```shell
+# Add git config
+ln -s ./.gitconfig ~/.gitconfig
+
+# Add global .gitignore
+ln -s ./.gitignore ~/.gitignore
 ```

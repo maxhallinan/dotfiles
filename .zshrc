@@ -7,9 +7,7 @@ export ZSH="${HOME}/.oh-my-zsh"
 # `npm install --global pure-prompt` has not worked for me on Ubuntu 16.04
 # `/usr/local/share/zsh/site-functions` is owned by root and pure-prompt creates
 # symlinks without `sudo`
-ZSH_THEME="pure"
-
-eval `dircolors  ~/.dir_colors/dircolors`
+ZSH_THEME=""
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -23,6 +21,9 @@ plugins=(git z tmux)
 export PATH="$HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
 source $ZSH/oh-my-zsh.sh
+
+autoload -U promptinit; promptinit
+prompt pure
 
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
@@ -62,7 +63,6 @@ export N_PREFIX="${NPM_PACKAGES}"
 ###-begin-pyenv-config-###
 ## https://github.com/pyenv/pyenv
 export PYENV_ROOT="$HOME/.pyenv"
-
 export PATH="$PYENV_ROOT/bin:$PATH"
 
 # *Keep at the end of .zshrc*
