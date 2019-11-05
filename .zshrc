@@ -22,6 +22,7 @@ export PATH="$HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
 source $ZSH/oh-my-zsh.sh
 
+export PURE_PROMPT_SYMBOL='%F{magenta}λ%f'
 autoload -U promptinit; promptinit
 prompt pure
 
@@ -75,3 +76,27 @@ eval "$(rbenv init -)"
 ###-end-rbenv-###
 
 alias notes='vim + "$(date +%Y)/$(date +%Y%m%d).md"'
+
+# https://routley.io/tech/2017/11/23/logbook.html
+function lb() {
+  vim $(date +%Y)/$(date +%Y%m%d).md
+}
+
+###-begin-ghci-###
+export PATH="$HOME/.local/bin:$PATH"
+###-end-ghci-###
+#
+###-begin-racket-###
+export PATH="$PATH:$HOME/racket/bin"
+###-end-racket-###
+
+
+###-begin-go-###
+export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:$HOME/go/bin
+export GOPATH=$HOME/go
+###-end-go-###
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+alias nv='nvim'

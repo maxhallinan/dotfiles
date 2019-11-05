@@ -121,3 +121,7 @@ ln -s ./.gitconfig ~/.gitconfig
 # Add global .gitignore
 ln -s ./.gitignore ~/.gitignore
 ```
+
+### i3wm
+
+

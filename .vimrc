@@ -5,7 +5,7 @@
 
 " Vundle
 " git clone https://github.com/VundleVim/Vundle.vim.git" ~/.vim/bundle/Vundle.vim
-" vim 
+" vim
 " :PluginInstall
 
 " Hybrid color scheme
@@ -25,7 +25,7 @@ set encoding=utf-8
 filetype plugin on
 " Enable syntax highighting
 syntax enable
-" 256 colours, please
+" 256 colours
 set t_Co=256
 " Dark solarized scheme
 set background=dark
@@ -42,7 +42,7 @@ autocmd BufNewFile,BufRead *.py set filetype=python
 " Tabs, indentation and lines
 
 filetype plugin indent on
-" 4 spaces please
+" 2 spaces please
 set expandtab
 set shiftwidth=2
 set tabstop=2
@@ -151,41 +151,48 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'scrooloose/nerdtree'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'bling/vim-airline'
-Plugin 'rbgrouleff/bclose.vim'
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'tpope/vim-commentary'
-Plugin 'editorconfig/editorconfig-vim'
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'pangloss/vim-javascript'
-Plugin 'JulesWang/css.vim'
-Plugin 'cakebaker/scss-syntax.vim'
-Plugin 'mxw/vim-jsx'
-Plugin 'elzr/vim-json'
+Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'editorconfig/editorconfig-vim'
 Plugin 'elmcast/elm-vim'
+Plugin 'elzr/vim-json'
+Plugin 'JulesWang/css.vim'
+Plugin 'mxw/vim-jsx'
+Plugin 'pangloss/vim-javascript'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'rbgrouleff/bclose.vim'
+Plugin 'tpope/vim-commentary'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'junegunn/fzf.vim'
+Plugin 'wlangstroth/vim-racket'
+Plugin 'purescript-contrib/purescript-vim'
+Plugin 'FrigoEU/psc-ide-vim'
+"Plugin 'morhetz/gruvbox'
+"Plugin 'NLKNguyen/papercolor-theme'
 call vundle#end()
 
+"purescript-vim indentation rules
+let purescript_indent_if = 0
+let purescript_indent_case = 2
+let purescript_indent_let = 2
+let purescript_indent_where = 2
+let purescript_indent_do = 2
+let purescript_indent_in = 2
 filetype plugin indent on
 
-color solarized 
+color solarized
 
 let g:vim_markdown_folding_disabled=1
 let g:vim_markdown_frontmatter=1
 
+let g:airline_theme='solarized'
+
+"let g:gruvbox_contrast_light='medium'
+
 " highlight jsx in .js files
 let g:jsx_ext_required = 0
-
-" autocmd vimenter * NERDTree
-" Toggle NERDTree
-map <Leader>n :NERDTreeToggle<CR>
-
-autocmd vimenter filetype markdown
-  \ set textwidth=79 |
-  \ set tabstop=4 |
-  \ set wrap |
 
 au BufNewFile,BufRead *.py
     \ set textwidth=79 |
@@ -195,3 +202,15 @@ au BufNewFile,BufRead *.py
     \ set expandtab |
     \ set autoindent |
     \ set fileformat=unix |
+
+" fzf fuzzy search
+" https://github.com/junegunn/fzf#as-vim-plugin
+set rtp+=~/.fzf
+
+" Toggle fzf
+map <Leader>n :Files<CR>
+
+nm <buffer> <silent> <leader>i :PimportModule 
+
+" https://parceljs.org/hmr.html#safe-write
+set backupcopy=yes
