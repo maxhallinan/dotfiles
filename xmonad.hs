@@ -1,8 +1,9 @@
 import XMonad
+import XMonad.Hooks.DynamicLog (xmobar)
 import XMonad.Util.EZConfig (additionalKeys)
 import Graphics.X11.ExtraTypes.XF86
 
-main = xmonad $ def `additionalKeys` keyBindings
+main = xmonad =<< xmobar (def `additionalKeys` keyBindings)
 
 keyBindings = 
   -- mute

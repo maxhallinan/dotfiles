@@ -1,0 +1,51 @@
+Config { font = "xft:Source Code Pro:size=9:antialias=true"
+       , bgColor = "#2d2d2d"
+       , fgColor = "#cccccc"
+       , position = Top
+       , lowerOnStart = True
+       , commands = 
+										[ Run Brightness
+												[ "--template" , "<fc=#66cccc>Light: <percent>%</fc>"
+												, "--High"     , "70"
+												, "--Low"      , "40"
+												, "--high"     , "#f2777a"
+												, "--normal"   , "#6699cc"
+												, "--low"      , "#99cc99"
+												, "--" -- brightness specific options
+												, "-D"         , "intel_backlight"
+												] 40
+                    , Run Network "wlp58s0"
+                        [ "--template", "Wifi: <rx> KB/s"
+                        , "--High",     "200"
+                        , "--Low",      "10"
+                        , "--high",     "#99cc99"
+                        , "--normal",   "#6699cc"
+                        , "--low",      "#f2777a"
+                        ] 40
+										, Run Battery
+												[ "--template" , ("<fc=#cc99cc>Batt: <acstatus></fc>")
+												, "--Low"      , "10"
+												, "--High"     , "80"
+												, "--high"     , "#99cc99"
+												, "--normal"   , "#6699cc"
+												, "--low"      , "#f2777a"
+												, "--" -- battery specific options
+												, "-o"	, "<left>% (<timeleft>)" -- discharging status
+												, "-O"	, "Charging (<left>%)" -- AC "on" status
+												, "-i"	, "Charged" -- charged status
+												, "-l"      , "#f2777a"
+												, "-m"      , "#6699cc"
+												, "-h"      , "#99cc99"
+												] 100
+										, Run Date "<fc=#66cccc>%F (%a) %T</fc>" "date" 10
+                    , Run StdinReader
+										-- To get volume information, we run a custom bash script.
+										-- This is because the built-in volume support in xmobar is disabled
+										-- in Debian and derivatives like Ubuntu.
+										-- , Run Com "~/bin/get-volume.sh" [] "volume" 1
+										, Run Com "/bin/bash" ["-c", "~/bin/get-volume.sh"]  "volume" 1
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = " %StdinReader% }{ %volume%   %wlp58s0%   %bright%   %battery%   %date%"
+       }
