@@ -125,7 +125,7 @@ celerybeat-schedule
 venv/
 ENV/
 include/
-lib/
+# lib/
 
 # pip
 pip-selfcheck.json
@@ -141,3 +141,7 @@ pip-selfcheck.json
 
 # Elm
 elm-stuff
+
+nix
+
+.s3cfg

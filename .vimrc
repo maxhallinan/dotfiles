@@ -40,16 +40,12 @@ autocmd BufNewFile,BufRead *.py set filetype=python
 
 
 " Tabs, indentation and lines
-
 filetype plugin indent on
-" 2 spaces please
 set expandtab
 set shiftwidth=2
 set tabstop=2
 set softtabstop=2
-" Round indent to nearest multiple of 2
 set shiftround
-" No line-wrapping
 set nowrap
 set formatoptions+=t
 
@@ -148,30 +144,35 @@ map <Leader>c :Bclose<CR>
 map <Leader>v :%s/\s\+$//e<CR>
 
 filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'bling/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'elmcast/elm-vim'
-Plugin 'elzr/vim-json'
-Plugin 'JulesWang/css.vim'
-Plugin 'mxw/vim-jsx'
-Plugin 'pangloss/vim-javascript'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'rbgrouleff/bclose.vim'
-Plugin 'tpope/vim-commentary'
-Plugin 'leafgarland/typescript-vim'
-Plugin 'junegunn/fzf.vim'
-Plugin 'wlangstroth/vim-racket'
-Plugin 'purescript-contrib/purescript-vim'
-Plugin 'FrigoEU/psc-ide-vim'
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+call plug#begin()
+Plug 'VundleVim/Vundle.vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'altercation/vim-colors-solarized'
+Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'elmcast/elm-vim'
+Plug 'elzr/vim-json'
+Plug 'JulesWang/css.vim'
+Plug 'mxw/vim-jsx'
+Plug 'pangloss/vim-javascript'
+Plug 'plasticboy/vim-markdown'
+Plug 'rbgrouleff/bclose.vim'
+Plug 'tpope/vim-commentary'
+Plug 'leafgarland/typescript-vim'
+Plug 'junegunn/fzf.vim'
+Plug 'wlangstroth/vim-racket'
+Plug 'purescript-contrib/purescript-vim'
+Plug 'FrigoEU/psc-ide-vim'
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Plugin 'morhetz/gruvbox'
 "Plugin 'NLKNguyen/papercolor-theme'
-call vundle#end()
+call plug#end()
 
 "purescript-vim indentation rules
 let purescript_indent_if = 0
@@ -205,12 +206,20 @@ au BufNewFile,BufRead *.py
 
 " fzf fuzzy search
 " https://github.com/junegunn/fzf#as-vim-plugin
-set rtp+=~/.fzf
+" set rtp+=~/.fzf
+set rtp+=/usr/local/opt/fzf
 
 " Toggle fzf
 map <Leader>n :Files<CR>
 
-nm <buffer> <silent> <leader>i :PimportModule 
+nm <buffer> <silent> <leader>i :PimportModule
 
 " https://parceljs.org/hmr.html#safe-write
 set backupcopy=yes
+
+" Automatically remove trailing whitespace
+autocmd BufWritePre * %s/\s\+$//e
+
+" CoC extensions
+" let g:coc_global_extensions = ['coc-tsserver']
+" nmap <silent> gd <Plug>(coc-definition)

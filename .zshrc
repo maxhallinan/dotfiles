@@ -1,9 +1,10 @@
 ###-begin-zsh-config-###
 # Path to your oh-my-zsh installation.
+export ZSH_DISABLE_COMPFIX=true
 export ZSH="${HOME}/.oh-my-zsh"
 
 # Disable oh-my-zsh themes for pure-prompt
-# Install manually: https://github.com/sindresorhus/pure 
+# Install manually: https://github.com/sindresorhus/pure
 # `npm install --global pure-prompt` has not worked for me on Ubuntu 16.04
 # `/usr/local/share/zsh/site-functions` is owned by root and pure-prompt creates
 # symlinks without `sudo`
@@ -63,11 +64,11 @@ export N_PREFIX="${NPM_PACKAGES}"
 
 ###-begin-pyenv-config-###
 ## https://github.com/pyenv/pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
+# export PYENV_ROOT="$HOME/.pyenv"
+# export PATH="$PYENV_ROOT/bin:$PATH"
 
 # *Keep at the end of .zshrc*
-eval "$(pyenv init -)"
+# eval "$(pyenv init -)"
 ###-end-pyenv-config-###
 
 ###-begin-rbenv-###
@@ -100,3 +101,28 @@ export GOPATH=$HOME/go
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 alias nv='nvim'
+
+. /Users/maxhallinan/.nix-profile/etc/profile.d/nix.sh
+
+eval "$(direnv hook zsh)"
+# if [ -e /Users/maxhallinan/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/maxhallinan/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+#
+#
+# export CURL_CA_BUNDLE=~/.ssh/cacert.pem
+export PATH="$HOME/.gem/ruby/3.0.0/bin:$PATH"
+
+# https://github.com/junegunn/fzf#respecting-gitignore
+export FZF_DEFAULT_COMMAND='fd --type f'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export PATH="/usr/local/sbin:$PATH"
+export NIX_PATH=$HOME/.nix-defexpr/channels:/nix/var/nix/profiles/per-user/root/channels${NIX_PATH:+:$NIX_PATH}
+
+[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+
+###-begin-rust-###
+export PATH="$HOME/.cargo/bin:$PATH"
+###-end-rust-###
+
+export PATH="/opt/homebrew/bin:$PATH"
+
+export PATH="/run/current-system/sw/bin:$PATH"

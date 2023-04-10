@@ -3,3 +3,4 @@
   email = maxhallinan@riseup.net
 [core]
 	excludesfile = ~/.gitignore
+	ignorecase = false
